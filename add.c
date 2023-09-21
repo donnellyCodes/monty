@@ -8,7 +8,7 @@ void add_s(stack_t **stack, unsigned int line_number)
 {
 	int temp;
 
-	if(*stack == NULL || (*stack)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		p_errors(4, line_number);
 		exit(EXIT_FAILURE);
