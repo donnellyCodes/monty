@@ -16,7 +16,7 @@ int user_error_message(int e)
  * @fName: name of the file
  * Return: EXIT_FAILURE
  */
-int open_error_message(char fName)
+int open_error_message(char *fName)
 {
 	fprintf(stderr, "Error: Can't open file %s\n", fName);
 	return (EXIT_FAILURE);

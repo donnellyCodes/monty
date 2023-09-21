@@ -6,14 +6,14 @@
  */
 void swap_s(stack_t **stack, unsigned int line_number)
 {
-	int temp;
+	int tmp;
 
-	if(*stack == NULL || (*stack)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		p_errors(3, line_number);
 		exit(EXIT_FAILURE);
 	}
-	temp = (*stack)->next->element;
-	(*stack)->next->element = (*stack)->element;
-	(*stack)->element = temp;
+	tmp = (*stack)->next->n;
+	(*stack)->next->n = (*stack)->n;
+	(*stack)->n = tmp;
 }

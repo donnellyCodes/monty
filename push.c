@@ -2,8 +2,9 @@
 /**
  * push_s - adds an element to stack
  * @stack: double pointer to the stack
+ * @token: double pointer to a character
  * @line_num: tracks number of the line
- * Retrun: EXIT_SUCCESS, or EXIT_FAILURE
+ * Return: EXIT_SUCCESS, or EXIT_FAILURE
  */
 int push_s(stack_t **stack, char **token, unsigned int line_num)
 {
@@ -29,7 +30,7 @@ int push_s(stack_t **stack, char **token, unsigned int line_num)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 		return (user_error_message(0));
-	new->element = atoi(token[1]);
+	new->n = atoi(token[1]);
 	if ((*stack) != NULL)
 		(*stack)->prev = new;
 	new->next = *stack;
@@ -46,7 +47,7 @@ int push_s(stack_t **stack, char **token, unsigned int line_num)
  */
 int push_q(stack_t **stack, char **token, unsigned int line_num)
 {
-	stack_t *new, *temp = NULL;
+	stack_t *new, *tmp = NULL;
 	int j = 0;
 
 	if (token[1] == NULL)
@@ -70,7 +71,7 @@ int push_q(stack_t **stack, char **token, unsigned int line_num)
 		return (user_error_message(0));
 	new->next = NULL;
 	new->prev = NULL;
-	new->element = atoi(token[1]);
+	new->n = atoi(token[1]);
 	if (!stack || !(*stack))
 	{
 		(*stack) = new;
@@ -78,11 +79,11 @@ int push_q(stack_t **stack, char **token, unsigned int line_num)
 	}
 	else
 	{
-		temp = *stack;
-		while (temp->stack)
-			temp = temp->next;
-		new->prev = temp;
-		temp->next = new;
+		tmp = *stack;
+		while (tmp->next)
+			tmp = tmp->next;
+		new->prev = tmp;
+		tmp->next = new;
 		return (EXIT_SUCCESS);
 	}
 	return (EXIT_FAILURE);

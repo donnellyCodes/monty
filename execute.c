@@ -11,7 +11,7 @@ int execute(char **token, stack_t **stack, unsigned int line_num)
 	unsigned int j = 0;
 
 	instruction_t op[] = {
-		{"pall", pall_S},
+		{"pall", pall_s},
 		{"pint", pint_s},
 		{"pop", pop_s},
 		{"swap", swap_s},

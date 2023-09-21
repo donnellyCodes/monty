@@ -1,15 +1,11 @@
 #ifndef MONTY_H
 #define MONTY_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
-#include <sys/types.h>
 #include <unistd.h>
 #include <sys/stat.h>
-
-
+#define MAX_LINE_LENGTH 1024
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -44,31 +40,31 @@ typedef struct instruction_s
 } instruction_t;
 
 
-extern FILE *file;
-FILE *file;
+int execute(char **token, stack_t **stack, unsigned int line_num);
+int push_s(stack_t **stack, char **token, unsigned int line_num);
+int push_q(stack_t **stack, char **token, unsigned int line_num);
+int run_bytecodes(FILE *fd);
+int empty_line(char *line, char *delims);
+char **tokenize(char *line, char *delim);
 
-void (*operator_function)(stack_t **, unsigned int);
-void (*go(char *op_f, unsigned int l, stack_t **s))(stack_t**, unsigned int);
+void pall_s(stack_t **stack, unsigned int line_num);
+void pint_s(stack_t **stack, unsigned int line_number);
+void pop_s(stack_t **stack, unsigned int line_number);
+void swap_s(stack_t **stack, unsigned int line_number);
+void add_s(stack_t **stack, unsigned int line_number);
+void sub_s(stack_t **stack, unsigned int line_number);
+void div_s(stack_t **stack, unsigned int line_number);
+void mul_s(stack_t **stack, unsigned int line_number);
+void mod_s(stack_t **stack, unsigned int line_number);
+void rotl_s(stack_t **stack, unsigned int line_number);
+void pchar_s(stack_t **stack, unsigned int line_number);
+void rotr_s(stack_t **stack, unsigned int line_number);
+void pstr_s(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t **stack);
 
-
-void get_push(stack_t **stack, unsigned int line_number, char *temp);
-void get_pall(stack_t **stack, unsigned int line_number);
-void get_pint(stack_t **stack, unsigned int line_number);
-void get_pop(stack_t **stack, unsigned int line_number);
-void get_swap(stack_t **stack, unsigned int line_number);
-void get_add(stack_t **stack, unsigned int line_number);
-void get_nop(stack_t **stack, unsigned int line_number);
-void get_sub(stack_t **stack, unsigned int line_number);
-void get_div(stack_t **stack, unsigned int line_number);
-void get_mul(stack_t **stack, unsigned int line_number);
-void get_mod(stack_t **stack, unsigned int line_number);
-void get_rotl(stack_t **stack, unsigned int line_number);
-void get_pchar(stack_t **stack, unsigned int line_number);
-void get_rotr(stack_t **stack, unsigned int line_number);
-void get_pstr(stack_t **stack, unsigned int line_number);
-
-void get_free(stack_t *stack);
-int _isdigit(char *str);
+int user_error_message(int e);
+int open_error_message(char *fName);
+int p_errors(int e, unsigned int line_num);
 
 
 #endif

@@ -13,7 +13,7 @@ void add_s(stack_t **stack, unsigned int line_number)
 		p_errors(4, line_number);
 		exit(EXIT_FAILURE);
 	}
-	temp = (*stack)->n + (*stack)->next->element;
-	(*stack)->next->element = temp;
-	pop_s(stock, line_number);
+	temp = (*stack)->n + (*stack)->next->n;
+	(*stack)->next->n = temp;
+	pop_s(stack, line_number);
 }

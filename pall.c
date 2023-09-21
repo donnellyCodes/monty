@@ -5,14 +5,14 @@
  * @line_num: tracks number of the line
  * Return: o
  */
-void pall_s(stack_t **stack, unisigned int line_num)
+void pall_s(stack_t **stack, unsigned int line_num)
 {
-	stack_t *temp = *stack;
+	stack_t *tmp = *stack;
 	(void)line_num;
 
-	while (temp != NULL)
+	while (tmp != NULL)
 	{
-		printf("%d\n", temp->element);
-		temp = temp->next;
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
 	}
 }

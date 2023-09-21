@@ -4,14 +4,14 @@
  * @stack: double pointer to the stack
  * Return: 0
  */
-void s_free(stack_t **stack)
+void free_stack(stack_t **stack)
 {
-	stack_t *temp = *stack;
+	stack_t *tmp = *stack;
 
 	while (*stack)
 	{
-		temp = (*stack)->next;
+		tmp = (*stack)->next;
 		free(*stack);
-		*stack = temp;
+		*stack = tmp;
 	}
 }

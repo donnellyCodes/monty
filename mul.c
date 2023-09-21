@@ -13,7 +13,7 @@ void mul_s(stack_t **stack, unsigned int line_number)
 		p_errors(8, line_number);
 		exit(EXIT_FAILURE);
 	}
-	temp = (*stack)->element * (*stack)->next->element;
-	(*stack)->next->element = temp;
+	temp = (*stack)->n * (*stack)->next->n;
+	(*stack)->next->n = temp;
 	pop_s(stack, line_number);
 }

@@ -13,7 +13,7 @@ void sub_s(stack_t **stack, unsigned int line_number)
 		p_errors(5, line_number);
 		exit(EXIT_FAILURE);
 	}
-	temp = (*stack)->next->element - (*stack)->element;
-	(*stack)->next->element = temp;
+	temp = (*stack)->next->n - (*stack)->n;
+	(*stack)->next->n = temp;
 	pop_s(stack, line_number);
 }

@@ -5,14 +5,14 @@
  * @line_number: current line of bytecodes
  * Return: value
  */
-void pint_s(stack_t **stack, unisigned int line_number)
+void pint_s(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
+	stack_t *tmp = *stack;
 
-	if (!temp)
+	if (!tmp)
 	{
 		p_errors(1, line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", temp->element);
+	printf("%d\n", tmp->n);
 }

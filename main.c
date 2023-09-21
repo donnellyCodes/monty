@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	int exit_status = EXIT_SUCCESS;
 
 	if (argc != 2)
-		return (usage_error_message(1));
+		return (user_error_message(1));
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
 		return (open_error_message(argv[1]));
